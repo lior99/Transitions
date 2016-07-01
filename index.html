@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>testing transitions</title>
+	<link rel="stylesheet" type="text/css" href="style/style.css">
+</head>
+<body>
+		<div class="container">
+			<div class="box"></div>
+		</div>
+
+		<button class="button-left"><--</button>
+		<button class="button-right">--></button>
+
+		<div class="output"></div>
+
+
+		<script type="text/javascript">
+			(function(window) {
+				var leftButton = document.querySelector(".button-left");
+				var rightButton = document.querySelector(".button-right");
+				var box = document.querySelector(".box");
+				var boxElement = new BoxElmement(box);
+
+
+				leftButton.addEventListener('click',function() {
+					boxElement.moveLeft();
+				});
+
+				rightButton.addEventListener('click',function() {
+					boxElement.moveRight();
+
+				});
+
+			}(window));
+
+			
+			// constructor
+			function BoxElmement(elm){
+				this.element = elm;
+			}
+
+			BoxElmement.prototype.moveLeft = function() {
+				this.element.classList.add("move-left");
+				this.element.classList.remove("move-right");
+
+			};
+
+			BoxElmement.prototype.moveRight = function(first_argument) {
+				this.element.classList.add("move-right");
+				this.element.classList.remove("move-left");
+			};
+
+		</script>
+</body>
+</html>

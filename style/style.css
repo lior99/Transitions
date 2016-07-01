@@ -1,0 +1,25 @@
+.container	{
+	width: 100%;
+	height: 200px;
+	border: solid 1px #e8e8e8;
+}
+
+.box {
+	width: 30px;
+	height: 30px;
+	background-color: #3F62CB;
+	position: absolute;
+	top: 10px;
+	left: 100px;
+
+}
+
+.move-right {
+	transform: translateX(200px);
+	transition-duration: .4s;
+}
+
+.move-left {
+	transform: translateZ(200px);
+	transition-duration: .4s;
+}
