@@ -7,50 +7,14 @@
 <body>
 		<div class="container">
 			<div class="box"></div>
+			<div class="box2"></div>
+			<div class="box3"></div>
 		</div>
 
 		<button class="button-left"><--</button>
 		<button class="button-right">--></button>
+		<input type="checkbox" name="" checked="checked" id="withDelayCheckbox"> With Delay
 
-		<div class="output"></div>
-
-
-		<script type="text/javascript">
-			(function(window) {
-				var leftButton = document.querySelector(".button-left");
-				var rightButton = document.querySelector(".button-right");
-				var box = document.querySelector(".box");
-				var boxElement = new BoxElmement(box);
-
-
-				leftButton.addEventListener('click',function() {
-					boxElement.moveLeft();
-				});
-
-				rightButton.addEventListener('click',function() {
-					boxElement.moveRight();
-
-				});
-
-			}(window));
-
-			
-			// constructor
-			function BoxElmement(elm){
-				this.element = elm;
-			}
-
-			BoxElmement.prototype.moveLeft = function() {
-				this.element.classList.add("move-left");
-				this.element.classList.remove("move-right");
-
-			};
-
-			BoxElmement.prototype.moveRight = function(first_argument) {
-				this.element.classList.add("move-right");
-				this.element.classList.remove("move-left");
-			};
-
-		</script>
+		<script type="text/javascript" src="scripts/main.js"></script>
 </body>
 </html>
