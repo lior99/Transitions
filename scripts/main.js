@@ -4,26 +4,21 @@
 				var box = document.querySelector(".box");
 				var withDelayCheckbox = document.querySelector("#withDelayCheckbox");
 				var useDelay = withDelayCheckbox["checked"];
-				var boxElement = new BoxElmement(box, useDelay);
-				var box2 = new BoxElmement(document.querySelector(".box2"), useDelay);
-				var box3 = new BoxElmement(document.querySelector(".box3"), useDelay);
+
+				let boxElement = createBoxElement('box', useDelay);
+				let box2 = createBoxElement('box2', useDelay);
+				let box3 = createBoxElement('box3', useDelay);
 
 				var elementsArray = [
 					boxElement, box2, box3
 				];
 
 				leftButton.addEventListener('click',function() {
-					boxElement.moveLeft();
-					box2.moveLeft();
-					box3.moveLeft();
-
+					elementsArray.forEach(item =>  item.moveLeft());
 				});
 
 				rightButton.addEventListener('click',function() {
-					boxElement.moveRight();
-					box2.moveRight();
-					box3.moveRight();
-
+					elementsArray.forEach(item => item.moveRight());
 				});
 
 				withDelayCheckbox.addEventListener('click', function() {
@@ -35,11 +30,16 @@
 						withDelay = false;
 					}
 
-
 					elementsArray.forEach(function(elm) {
 						elm.withDelay = withDelay;
 					});
 				});
+
+				function createBoxElement(className, useDelay) {
+					let element = document.querySelector(`.${className}`);
+					return new BoxElmement(element, useDelay);
+				}
+
 
 			}(window));
 
